@@ -1,0 +1,225 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/object1702057464.json",
+  "title": "Root",
+  "type": "object",
+  "required": [
+    "data",
+    "links"
+  ],
+  "properties": {
+    "data": {
+      "$id": "#root/data",
+      "title": "Data",
+      "type": "array",
+      "default": [],
+      "items":{
+        "$id": "#root/data/items",
+        "title": "Items",
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "attributes"
+        ],
+        "properties": {
+          "id": {
+            "$id": "#root/data/items/id",
+            "title": "Id",
+            "type": "string",
+            "default": "",
+            "examples": [
+              "GKA"
+            ],
+            "pattern": "^.*$"
+          },
+          "type": {
+            "$id": "#root/data/items/type",
+            "title": "Type",
+            "type": "string",
+            "default": "",
+            "examples": [
+              "airport"
+            ],
+            "pattern": "^.*$"
+          },
+          "attributes": {
+            "$id": "#root/data/items/attributes",
+            "title": "Attributes",
+            "type": "object",
+            "required": [
+              "name",
+              "city",
+              "country",
+              "iata",
+              "icao",
+              "latitude",
+              "longitude",
+              "altitude",
+              "timezone"
+            ],
+            "properties": {
+              "name": {
+                "$id": "#root/data/items/attributes/name",
+                "title": "Name",
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "Goroka Airport"
+                ],
+                "pattern": "^.*$"
+              },
+              "city": {
+                "$id": "#root/data/items/attributes/city",
+                "title": "City",
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "Goroka"
+                ],
+                "pattern": "^.*$"
+              },
+              "country": {
+                "$id": "#root/data/items/attributes/country",
+                "title": "Country",
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "Papua New Guinea"
+                ],
+                "pattern": "^.*$"
+              },
+              "iata": {
+                "$id": "#root/data/items/attributes/iata",
+                "title": "Iata",
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "GKA"
+                ],
+                "pattern": "^.*$"
+              },
+              "icao": {
+                "$id": "#root/data/items/attributes/icao",
+                "title": "Icao",
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "AYGA"
+                ],
+                "pattern": "^.*$"
+              },
+              "latitude": {
+                "$id": "#root/data/items/attributes/latitude",
+                "title": "Latitude",
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "-6.08169"
+                ],
+                "pattern": "^.*$"
+              },
+              "longitude": {
+                "$id": "#root/data/items/attributes/longitude",
+                "title": "Longitude",
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "145.391998"
+                ],
+                "pattern": "^.*$"
+              },
+              "altitude": {
+                "$id": "#root/data/items/attributes/altitude",
+                "title": "Altitude",
+                "type": "integer",
+                "examples": [
+                  5282
+                ],
+                "default": 0
+              },
+              "timezone": {
+                "$id": "#root/data/items/attributes/timezone",
+                "title": "Timezone",
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "Pacific/Port_Moresby"
+                ],
+                "pattern": "^.*$"
+              }
+            }
+          }
+
+        }
+      }
+
+    },
+    "links": {
+      "$id": "#root/links",
+      "title": "Links",
+      "type": "object",
+      "required": [
+        "first",
+        "self",
+        "last",
+        "prev",
+        "next"
+      ],
+      "properties": {
+        "first": {
+          "$id": "#root/links/first",
+          "title": "First",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "https://airportgap.com/api/airports"
+          ],
+          "pattern": "^.*$"
+        },
+        "self": {
+          "$id": "#root/links/self",
+          "title": "Self",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "https://airportgap.com/api/airports"
+          ],
+          "pattern": "^.*$"
+        },
+        "last": {
+          "$id": "#root/links/last",
+          "title": "Last",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "https://airportgap.com/api/airports?page=203"
+          ],
+          "pattern": "^.*$"
+        },
+        "prev": {
+          "$id": "#root/links/prev",
+          "title": "Prev",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "https://airportgap.com/api/airports"
+          ],
+          "pattern": "^.*$"
+        },
+        "next": {
+          "$id": "#root/links/next",
+          "title": "Next",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "https://airportgap.com/api/airports?page=2"
+          ],
+          "pattern": "^.*$"
+        }
+      }
+    }
+
+  }
+}
