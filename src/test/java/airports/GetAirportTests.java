@@ -12,6 +12,20 @@ import java.io.File;
 
 public class GetAirportTests extends BaseTest{
 
+    @DataProvider(name = "airport_ids")
+    public Object[][] airportId(){
+        return new Object[][]{{"HGU"}, {"LAE"}, {"POM"}, {"WWK"}, {"UAK"}, {"GOH"},
+                {"SFJ"}, {"THU"}, {"AEY"}, {"EGS"}, {"HFN"}, {"HZK"}, {"IFJ"}, {"KEF"},
+                {"PFJ"}, {"RKV"}, {"SIJ"}, {"VEY"}, {"YAM"}, {"YAY"}, {"YAZ"}, {"YBB"},
+                {"YBC"}, {"YBG"}, {"YBK"}, {"YBL"}, {"YBR"}, {"YCB"}};
+    }
+
+    @DataProvider(name = "bad_data")
+    public Object[][] badData(){
+        return new Object[][]{{"/login"}, {"111"}, {"###"}, {"!!!"}, {"@@@"}, {"$$$"},
+                {"%%%"}, {"^^^"}, {"&&&"}, {"admin"}};
+    }
+
     @Test
     public void GetAirportsReturns200Status() {
         Response resp = RestAssured.given(getRequestSpec())
@@ -45,7 +59,18 @@ public class GetAirportTests extends BaseTest{
     }
 
     @Test (dataProvider = "airport_ids")
-    public void GetAirportsByIDReturns200Status(String airportID){
+    public void GetAirportValidateJsonSchema(String airportID){
+        RestAssured.given(getRequestSpec())
+                .when().get("/airports/"+airportID)
+                .then()
+                .assertThat()
+                .body(JsonSchemaValidator.matchesJsonSchema(
+                        new File("src/test/resources/airport.json")
+                ));
+    }
+
+    @Test (dataProvider = "airport_ids")
+    public void GetAirportByIDReturns200Status(String airportID){
         Response resp = RestAssured.given(getRequestSpec())
                 .when().get("/airports/"+airportID)
                 .then()
@@ -55,11 +80,7 @@ public class GetAirportTests extends BaseTest{
 
     }
 
-    @DataProvider(name = "bad_data")
-    public Object[][] airportId(){
-        return new Object[][]{{"/login"}, {"111"}, {"###"}, {"!!!"}, {"@@@"}, {"$$$"},
-                {"%%%"}, {"^^^"}, {"&&&"}, {"admin"}};
-    }
+
     @Test (dataProvider = "bad_data")
     public void GetAirportsByIDReturns404Status(String airportID){
         Response resp = RestAssured.given(getRequestSpec())

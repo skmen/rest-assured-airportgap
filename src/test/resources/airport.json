@@ -1,0 +1,153 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/object1702070695.json",
+  "title": "Root",
+  "type": "object",
+  "required": [
+    "data"
+  ],
+  "properties": {
+    "data": {
+      "$id": "#root/data",
+      "title": "Data",
+      "type": "object",
+      "required": [
+        "attributes",
+        "id",
+        "type"
+      ],
+      "properties": {
+        "attributes": {
+          "$id": "#root/data/attributes",
+          "title": "Attributes",
+          "type": "object",
+          "required": [
+            "altitude",
+            "city",
+            "country",
+            "iata",
+            "icao",
+            "latitude",
+            "longitude",
+            "name",
+            "timezone"
+          ],
+          "properties": {
+            "altitude": {
+              "$id": "#root/data/attributes/altitude",
+              "title": "Altitude",
+              "type": "integer",
+              "examples": [
+                26
+              ],
+              "default": 0
+            },
+            "city": {
+              "$id": "#root/data/attributes/city",
+              "title": "City",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "Osaka"
+              ],
+              "pattern": "^.*$"
+            },
+            "country": {
+              "$id": "#root/data/attributes/country",
+              "title": "Country",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "Japan"
+              ],
+              "pattern": "^.*$"
+            },
+            "iata": {
+              "$id": "#root/data/attributes/iata",
+              "title": "Iata",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "KIX"
+              ],
+              "pattern": "^.*$"
+            },
+            "icao": {
+              "$id": "#root/data/attributes/icao",
+              "title": "Icao",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "RJBB"
+              ],
+              "pattern": "^.*$"
+            },
+            "latitude": {
+              "$id": "#root/data/attributes/latitude",
+              "title": "Latitude",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "34.427299"
+              ],
+              "pattern": "^.*$"
+            },
+            "longitude": {
+              "$id": "#root/data/attributes/longitude",
+              "title": "Longitude",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "135.244003"
+              ],
+              "pattern": "^.*$"
+            },
+            "name": {
+              "$id": "#root/data/attributes/name",
+              "title": "Name",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "Kansai International Airport"
+              ],
+              "pattern": "^.*$"
+            },
+            "timezone": {
+              "$id": "#root/data/attributes/timezone",
+              "title": "Timezone",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "Asia/Tokyo"
+              ],
+              "pattern": "^.*$"
+            }
+          }
+        }
+      ,
+        "id": {
+          "$id": "#root/data/id",
+          "title": "Id",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "KIX"
+          ],
+          "pattern": "^.*$"
+        },
+        "type": {
+          "$id": "#root/data/type",
+          "title": "Type",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "airport"
+          ],
+          "pattern": "^.*$"
+        }
+      }
+    }
+
+  }
+}
