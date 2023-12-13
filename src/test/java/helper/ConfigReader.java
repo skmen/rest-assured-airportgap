@@ -45,6 +45,16 @@ public class ConfigReader {
 
     }
 
+    public String getEmail(){
+        String email = properties.getProperty("email");
+        return propertyValue(email);
+    }
+
+    public String getPassword(){
+        String password = properties.getProperty("password");
+        return propertyValue(password);
+    }
+
     private String propertyValue(String property){
         if(property!= null) return property;
         else throw new RuntimeException((property + " not specified in config"));
