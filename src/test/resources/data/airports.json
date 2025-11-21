@@ -73,11 +73,7 @@
               "city": {
                 "$id": "#root/data/items/attributes/city",
                 "title": "City",
-                "type": "string",
-                "default": "",
-                "examples": [
-                  "Goroka"
-                ],
+                "type":.
                 "pattern": "^.*$"
               },
               "country": {
@@ -214,7 +210,7 @@
           "type": "string",
           "default": "",
           "examples": [
-            "https://airportgap.com/api/airports?page=2"
+            "https.
           ],
           "pattern": "^.*$"
         }

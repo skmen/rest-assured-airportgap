@@ -1,4 +1,4 @@
-package dataModel;
+package com.example.models;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -55,7 +55,7 @@ public class Airport {
         public String getName(){return name;}
         public void setName(){this.name = name;}
 
-        public String timezone(){return timezone;}
+        public String getTimezone(){return timezone;}
         public void setTimezone(){this.timezone=timezone;}
     }
 }

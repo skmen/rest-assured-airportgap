@@ -1,19 +1,24 @@
-package airports;
+package com.example.tests;
 
-import io.restassured.RestAssured;
+import com.example.utils.BaseTest;
 import io.restassured.module.jsv.JsonSchemaValidator;
-import io.restassured.response.Response;
-import io.restassured.response.ValidatableResponse;
-import io.restassured.specification.RequestSpecification;
 import org.hamcrest.Matchers;
-import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import com.example.api_services.AirportsService;
 
 import java.io.File;
 
 public class GetAirportsByIdTests extends BaseTest{
+
+    private AirportsService airportsService;
+
+    @BeforeClass
+    public void setup() {
+        super.setup();
+        airportsService = new AirportsService(reqSpec);
+    }
 
     @DataProvider(name = "airport_ids")
     public Object[][] airportId(){
@@ -29,38 +34,32 @@ public class GetAirportsByIdTests extends BaseTest{
                 {"%%%"}, {"^^^"}, {"&&&"}, {"admin"}};
     }
 
-    RequestSpecification reqSpec;
-    @BeforeMethod
-    public void setup(){
-        reqSpec = RestAssured.given(getRequestSpec());
-    }
-
     @Test (dataProvider = "airport_ids")
     public void GetAirportByIDReturns200Status(String airportID){
-        reqSpec.when().get("/airports/"+airportID)
+        airportsService.getAirportById(airportID)
                 .then()
                 .assertThat().statusCode(200);
     }
 
     @Test (dataProvider = "bad_data")
     public void GetAirportsByIDReturns404Status(String airportID){
-        reqSpec.when().get("/airports/"+airportID)
+        airportsService.getAirportById(airportID)
                 .then()
                 .assertThat().statusCode(404);
     }
     @Test(dataProvider = "airport_ids")
     public void GetAirportValidateJsonSchema(String airportID){
-        reqSpec.when().get("/airports/"+airportID)
+        airportsService.getAirportById(airportID)
                 .then()
                 .assertThat()
                 .body(JsonSchemaValidator.matchesJsonSchema(
-                        new File("src/test/resources/airport.json")
+                        new File("src/test/resources/data/airport.json")
                 ));
     }
 
     @Test (dataProvider = "airport_ids")
     public void VerifyGetAirportByIDResponseTimeUnder500ms(String airportID){
-        reqSpec.when().get("/airports/"+airportID)
+        airportsService.getAirportById(airportID)
                 .then()
                 .assertThat().time(Matchers.lessThan(500L));
     }

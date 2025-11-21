@@ -1,4 +1,4 @@
-package helper;
+package com.example.utils;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -12,7 +12,7 @@ public class ConfigReader {
 
     private ConfigReader(){
         BufferedReader reader;
-        String propertyFilePath = "src/test/resources/configuration.properties";
+        String propertyFilePath = "src/test/resources/config/environments.properties";
         try{
             reader = new BufferedReader(new FileReader(propertyFilePath));
             properties = new Properties();
