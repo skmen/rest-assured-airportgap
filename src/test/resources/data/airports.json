@@ -73,7 +73,7 @@
               "city": {
                 "$id": "#root/data/items/attributes/city",
                 "title": "City",
-                "type":.
+                "type":"string",
                 "pattern": "^.*$"
               },
               "country": {
@@ -210,7 +210,7 @@
           "type": "string",
           "default": "",
           "examples": [
-            "https.
+            "https://airportgap.com/api/airports"
           ],
           "pattern": "^.*$"
         }
