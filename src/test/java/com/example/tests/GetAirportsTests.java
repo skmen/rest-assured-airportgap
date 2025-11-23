@@ -45,7 +45,7 @@ public class GetAirportsTests extends BaseTest{
         airportsService.getAirports()
                 .then()
                 .assertThat().contentType(ContentType.JSON)
-                .assertThat().header("Content-Encoding", "gzip")
+                .assertThat().header("Content-Encoding", "gzip");
     }
 
     @Test
