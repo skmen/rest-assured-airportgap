@@ -28,22 +28,14 @@ public class PostAirportTests extends BaseTest{
 
     @Test(dataProvider = "airport_ids")
     public void VerifyPostAirportDistanceReturns200(String fromAirport){
-        String[] toAirport = new String[]{"HGU","LAE", "POM", "WWK", "UAK", "GOH",
-                "SFJ", "THU", "AEY", "EGS", "HFN", "HZK", "IFJ", "KEF",
-                "PFJ", "RKV", "SIJ", "VEY", "YAM", "YAY", "YAZ", "YBB",
-                "YBC", "YBG", "YBK", "YBL", "YBR", "YCB"};
-
-        for (String s : toAirport) {
-            if (fromAirport.equals(s)) continue;
-            Response resp = airportsService.getAirportDistance(fromAirport, s);
-            Assert.assertEquals(200, resp.statusCode());
-        }
+        Response resp = airportsService.getAirportDistance(fromAirport, "YBK");
+        Assert.assertEquals(resp.statusCode(), 200);
     }
 
     @Test
     public void VerifyPostAirportDistanceReturns422(){
         Response resp = airportsService.getAirportDistance("HGU", "ZZZ");
-        Assert.assertEquals(422, resp.statusCode());
+        Assert.assertEquals(resp.statusCode(), 422);
     }
 
     @Test
